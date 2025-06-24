@@ -25,33 +25,37 @@
         <h4>Feedback Form</h4>
         <hr>
         <form id="form"> 
-            Username: <br>
-            <input type="text" name="fUN" placeholder="Enter your name"> <br><br>
-            Email: <br>
-            <input name="fEm" type="email"> <br><br>
-            Feedback: <br>
-            <textarea name="fFb" id="" placeholder="Enter your address"></textarea> <br><br>
-            Rating: <br>
-            <input name="fRa" type="radio"  value="1">1
-            <input name="fRa" type="radio"  value="2">2
-            <input name="fRa" type="radio"  value="3">3
-            <input name="fRa" type="radio"  value="4">4
-            <input name="fRa" type="radio"  value="5">5
+            Username: 
+            <input type="text" name="fUN" placeholder="Enter your username"> <br><br>
+            Email: 
+            <input name="fEm" type="email" placeholder="Enter your e-mail"> <br><br>
+            Feedback: 
+            <textarea name="fFb" id="" placeholder="Enter your feedback"></textarea> <br><br>
+            Rating: 
+            <input name="fRa" type="radio"  value="1"> 1
+            <input name="fRa" type="radio"  value="2"> 2
+            <input name="fRa" type="radio"  value="3"> 3
+            <input name="fRa" type="radio"  value="4"> 4
+            <input name="fRa" type="radio"  value="5"> 5
             <br><br>
-            Features: <br>
-            <input name="fEdu" type="checkbox" value="SSC">SSC
-            <input name="fEdu" type="checkbox" value="HSC">HSC 
-            <input name="fEdu" type="checkbox" value="BBA">BBA <br><br>
-            Round: <br>
-            <select name="fRound">
-                <option>65</option>
-                <option>64</option>
-                <option>63</option>
+            Features: 
+            <input name="fFe" type="checkbox" value="Login">Login
+            <input name="fFe" type="checkbox" value="Search">Search 
+            <input name="fFe" type="checkbox" value="Dashboard">Dashboard
+            <input name="fFe" type="checkbox" value="Reports">Reports
+            <br><br>
+            User Type: 
+            <select name="fUT">
+                <option>Admin</option>
+                <option>Guest</option>
+                <option>Registered</option>
             </select>
             <br><br>
             
-            <input type="submit" value="Submit">
-            <input type="reset" value="Reset">
+            <div style="margin: 10px 37%;"> 
+                <input type="submit" value="Submit">
+                <input type="reset" value="Reset">
+            </div>
         </form>
     </fieldset>
     </div>
@@ -64,12 +68,12 @@
           }
 
           getData(){
-            var result="ID: "+this.fID+"<br>";
-            result+="Name: "+this.fName+"<br>";
-            result+="Address: "+this.fAddress+"<br>";
-            result+="Round: "+this.fRound+"<br>";
-            result+="Gender: "+this.fG+"<br>";
-            result+="Education: "+this.fEdu+"<br>";
+            var result="User Name: "+this.fUN+"<br>";
+            result+="Email: "+this.fEm+"<br>";
+            result+="Feedback: "+this.fFb+"<br>";
+            result+="Rating: "+this.fRa+"<br>";
+            result+="Features: "+this.fFe+"<br>";
+            result+="User Type: "+this.fUT+"<br>";
             var win=window.open('','','width=400,height=450');
             win.document.write(result);
           }
