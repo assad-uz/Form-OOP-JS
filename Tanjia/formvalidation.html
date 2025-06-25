@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form class="surveyform">
+        <h2>Survey Form</h2>
+        <div>
+            <label>Name:</label><br>
+            <input type="text" name="name">
+             <div style="color: brown;"></div>
+        </div><br>
+
+         <div>
+            <label>Email:</label><br>
+            <input type="text" name="email">
+             <div style="color: brown;"></div>
+        </div><br>
+        <div>
+            <label>Comments:</label><br>
+            <textarea type="text" name="comments"></textarea>
+             <div style="color: brown;"></div>
+        </div><br>
+        <div>
+            <label>Gender:</label><br>
+            <div>
+              <input type="radio" name="gender" value="Male">Male
+            </div>
+            <div>
+              <input type="radio" name="gender" value="Female">Female
+            </div>
+            
+             <div  class="gender-error" style="color: brown;"></div>
+        </div><br>
+
+        <div>
+            <label>Skills:</label><br>
+            <div>
+              <input type="checkbox" name="skills" value="HTML">HTML
+            </div>
+            <div>
+              <input type="checkbox" name="skills" value="CSS">CSS
+            </div>
+            <div>
+              <input type="checkbox" name="skills" value="JS">JS
+            </div>
+            <div>
+              <input type="checkbox" name="skills" value="Python">Python
+            </div>
+            
+             <div class="skills-error" style="color: brown;"></div>
+        </div><br>
+
+        <div>
+            <label>MemberShip:</label>
+            <select name="membership">
+                <option value="Free">Free</option>
+                <option value="Premium">Premium</option>
+                <option value="Free">Extension</option>
+            </select>
+             <div class="membership-error" style="color: brown;"></div>
+        </div><br>
+
+
+        <div>
+            <label>Password:</label><br>
+            <input type="password" name="password">
+             <div style="color: brown;"></div>
+        </div><br>
+        <div>
+            <label>Confirm password:</label><br>
+            <input type="password" name="confirmpassword">
+             <div style="color: brown;"></div>
+        </div><br>
+
+        <div>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+
+    <script src="formvalidation.js"></script>
+    <script>new SurveyForm(".surveyform")</script>
+</body>
+</html>
