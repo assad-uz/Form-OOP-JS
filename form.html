@@ -1,86 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HTML-FORM</title>
-    <style> 
-        * {
-            font-family: Arial, Helvetica, sans-serif;
-        }
-        h4{
-            text-align: center;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    form {
+      line-height: 1.5;
+    }
+    legend {
+      text-align: center;
+      font-size: x-large;
+      font-weight: bold;
+    }
+    #headline {
+      line-height: .4 !important;
+      text-align: center;
+    }
+  </style>
 </head>
+
 <body>
-
-    <div style="width: 500px;margin: auto;background-color:#b0b4dd; border-radius: 10px; padding: 5px;"> 
-
-        <div style="line-height: .4; text-align: center;"> 
-        <h2>Name: Assaduzzaman</h2>
-        <h3>ID: 1288328</h3>
-        </div>
-        <fieldset> 
-        <h4>Student Registration Form</h4>
-        <hr>
-        <form id="form"> 
-            ID: <br>
-            <input type="text" name="fID" placeholder="Enter your ID"> <br><br>
-            Name: <br>
-            <input type="text" name="fName" placeholder="Enter your name"> <br><br>
-            Address: <br>
-            <textarea name="fAddress" id="" placeholder="Enter your address"></textarea> <br><br>
-            Round: <br>
-            <select name="fRound">
-                <option>65</option>
-                <option>64</option>
-                <option>63</option>
-            </select>
-            <br><br>
-            Gender: <br>
-            <input name="fG" type="radio"  value="Male">Male
-            <input name="fG" type="radio"  value="Female">Female
-            <input name="fG" type="radio"  value="Others">Others
-            <br><br>
-            Education: <br>
-            <input name="fEdu" type="checkbox" value="SSC">SSC
-            <input name="fEdu" type="checkbox" value="HSC">HSC 
-            <input name="fEdu" type="checkbox" value="BBA">BBA <br><br>
-
-            <input type="submit" value="Submit">
-            <input type="reset" value="Reset">
-        </form>
-    </fieldset>
+  <div style="width: 500px; margin: auto;background-color:#b0b4dd; border-radius: 10px; padding: 10px;">
+    <div id="headline">
+      <h2>Name: Assaduzzaman</h2>
+      <h3>ID: 1288328</h3>
     </div>
-      <script>
-        class FormValues {
-          constructor(formData){
-            for(let[name,value] of formData) {
-              this[name] = formData.getAll(name).join(" , ");
-            }
-          }
+    <fieldset>
+      <legend>Survey Form</legend>
+      <form id="form">
+        <label for="fName">Full Name:</label> <br>
+        <input type="text" name="fName" required> <br><br>
 
-          getData(){
-            var result="ID: "+this.fID+"<br>";
-            result+="Name: "+this.fName+"<br>";
-            result+="Address: "+this.fAddress+"<br>";
-            result+="Round: "+this.fRound+"<br>";
-            result+="Gender: "+this.fG+"<br>";
-            result+="Education: "+this.fEdu+"<br>";
-            var win=window.open('','','width=400,height=450');
-            win.document.write(result);
-          }
+        <label for="fEm">Contact E-mail:</label> <br>
+        <input type="email" name="fEm" required> <br><br>
 
+        <label for="fSug">Suggestions:</label> <br>
+        <textarea name="fSug" required></textarea> <br><br>
+
+        <label for="fRo">Satisfaction Level:</label> <br>
+        <input type="radio" name="fRo" value="Poor" required> Poor
+        <input type="radio" name="fRo" value="Average" required> Average
+        <input type="radio" name="fRo" value="Good" required> Good
+        <input type="radio" name="fRo" value="Excellent" required> Excellent
+        <br><br>
+
+        <label for="fCkb">Services Used:</label> <br>
+        <input type="checkbox" name="fCkb" value="Newsletter" required> Newsletter
+        <input type="checkbox" name="fCkb" value="Support Chat"> Support Chat
+        <input type="checkbox" name="fCkb" value="Profile Management"> Profile Management
+        <input type="checkbox" name="fCkb" value="Notifications"> Notifications
+        <br><br>
+
+        <label for="fDD">Membership Tier</label> <br>
+        <select name="fDD">
+          <option value="Free" required>Free</option>
+          <option value="Premium" required>Premium</option>
+          <option value="Enterprise" required>Enterprise</option>
+        </select>
+        <br><br>
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+      </form>
+    </fieldset>
+
+    <script>
+      class FormValues {
+        constructor(formData) {
+          for (let [name, value] of formData) {
+            this[name] = formData.getAll(name).join(" , ")
+          }
         }
-        form.onsubmit=async(e)=>{
-            e.preventDefault();
-                var fm=document.querySelector('#form');
+        getData() {
+          var result = "Full Name: " + this.fName + '<br>';
+          result += "Contact Email: " + this.fEm + '<br>';
+          result += "Suggestions: " + this.fSug + '<br>';
+          result += "Satisfaction Level: " + this.fRo + '<br>';
+          result += "Services Used: " + this.fCkb + '<br>';
+          result += "Membership Tier: " + this.fDD + '<br>';
+          var win = window.open('', '', 'width=400px,height=450px')
+          win.document.write(result);
+        }
+      }
+      form.onsubmit = async (e) => {
+        e.preventDefault();
+        var fm = document.querySelector('#form');
 
-                var form_data=new FormData(fm);
-                var f=new FormValues(form_data);
-                f.getData();
-            }
+        var form_data = new FormData(fm);
+        var f = new FormValues(form_data);
+        f.getData();
+      }
+
     </script>
+  </div>
 </body>
+
 </html>
